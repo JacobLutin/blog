@@ -1,6 +1,6 @@
 <h1>All of the Articles</h1>
 
-<table>
+<table class="table table-striped">
 	<tr>
 		<th>Title</th>
 		<th>Text</th>
@@ -14,9 +14,9 @@
 			<td>
 				<%= article.text %><br>
 				<div class="action">
-					<%= link_to "Show", article %> |
-					<%= link_to "Edit", edit_article_path(article) %> |
-					<%= link_to "Destroy", article_path(article), method: :delete, data: { confirm: "Are you sure you want to delete this article?"} %>
+					<%= link_to "Show", article, class: 'btn btn-small'%>
+					<%= link_to "Edit", edit_article_path(article), class: 'btn btn-small'%>
+					<%= link_to "Destroy", article_path(article), method: :delete, data: { confirm: "Are you sure you want to delete this article?"}, class: 'btn btn-small btn-danger' %>
 				</div>
 			</td>
 			<td><%= time_ago_in_words(article.created_at) %> ago</td>
@@ -24,4 +24,4 @@
 		</tr class="article">
 	<% end %>
 </table>
-<%= link_to "Post new article", new_article_path %>
+<%= link_to "Post new article", new_article_path, class: 'btn btn-primary' %>
