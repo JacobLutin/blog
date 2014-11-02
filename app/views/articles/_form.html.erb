@@ -1,4 +1,4 @@
-<%= form_for @article do |f| %>
+<%= simple_form_for(@article, html: { class: 'form-horizontal' }) do |f| %>
 
 	<% if @article.errors.any? %>
 	<div class="error_explanation">
@@ -10,20 +10,13 @@
 		</ul>
 	</div>
 	<% end %>
-
-	<p>
-		<%= f.label :title %><br>
-		<%= f.text_field :title %>
-	</p>
-	<p>
-		<%= f.label :text %><br>
-		<%= f.text_area :text %>
-	</p>
-	<p>
-		<%= f.submit "Clear", type: "reset", class: 'btn btn-danger' %>
-	</p>
-	<p>
-		<%= f.submit class: 'btn btn-success'%>
-	</p>
-
+	
+	<%= f.input :title %>
+	<%= f.input :profile_name %>
+	<%= f.input :age %>r
+	<%= f.input :text, prompt: 'Type Text' %>
+	<div class="form-actions">
+		<%= f.button :submit, 'Reset', type: "reset", class: 'btn btn-danger' %>
+		<%= f.button :submit, "Post new article", class: 'btn btn-success'%>
+	</div>
 <% end %>
